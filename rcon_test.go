@@ -6,7 +6,7 @@ var conn *MCConn
 
 func TestMCConn_Open(t *testing.T) {
 	conn = new(MCConn)
-	err := conn.Open("localhost:25575", "testpw")
+	err := conn.Open("minecraft:25575", "testpw")
 	if err != nil {
 		t.Error("Open failed", err)
 		return
