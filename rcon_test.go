@@ -1,12 +1,17 @@
 package mc_rcon
 
-import "testing"
+import (
+	"fmt"
+	"os"
+	"testing"
+)
 
 var conn *MCConn
 
 func TestMCConn_Open(t *testing.T) {
 	conn = new(MCConn)
-	err := conn.Open("minecraft:25575", "testpw")
+	addr := fmt.Sprintf("%s:%s", os.Getenv("MINECRAFT_HOST"), os.Getenv("MINECRAFT_PORT"))
+	err := conn.Open(addr, "testpw")
 	if err != nil {
 		t.Error("Open failed", err)
 		return

@@ -4,14 +4,19 @@ A Minecraft RCON library written in Go.
 
 Forked from [github.com/bearbin/mcgorcon](https://github.com/bearbin/mcgorcon), cleaned up auth, and added tests.
 
-Basic usage:
+## Installation
+```
+go get github.com/Kelwing/mc-rcon
+```
+
+## Basic usage
 ```go
 package main
 
 import (
     "log"
 
-    mcrcon "github.com/kelwing/mc-rcon"
+    mcrcon "github.com/Kelwing/mc-rcon"
 )
 
 func main() {
