@@ -2,16 +2,12 @@ on: [push, pull_request]
 name: Test
 jobs:
   test:
-    strategy:
-      matrix:
-        go-version: [1.12.x, 1.13.x]
-        platform: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.platform }}
+    runs-on: ubuntu-latest
     services:
       minecraft:
         image: itzg/minecraft-server
         ports:
-          - 25575:25575
+          - 25575/tcp
         env:
           EULA: TRUE
           ENABLE_RCON: "true"
@@ -21,7 +17,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v1
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: 1.13.x
       - name: Checkout code
         uses: actions/checkout@v1
       - name: Test
