@@ -1,3 +1,3 @@
-module github.com/kelwing/mc-rcon
+module github.com/Kelwing/mc-rcon
 
 go 1.13

@@ -9,6 +9,7 @@ func TestOpen(t *testing.T) {
 		t.Error("Open failed", err)
 		return
 	}
+	defer conn.Close()
 
 	err = conn.Authenticate()
 	if err != nil {

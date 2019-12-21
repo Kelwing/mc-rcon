@@ -50,6 +50,10 @@ func (c *MCConn) Open(addr, password string) error {
 	return nil
 }
 
+func (c *MCConn) Close() {
+	_ = c.conn.Close()
+}
+
 // SendCommand sends a command to the server and returns the result (often nothing).
 func (c *MCConn) SendCommand(command string) (string, error) {
 	// Send the packet.
