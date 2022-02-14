@@ -5,7 +5,6 @@ import (
 	"encoding/binary"
 	"errors"
 	"io"
-	"log"
 	"net"
 	"time"
 )
@@ -38,7 +37,6 @@ type RCONHeader struct {
 }
 
 func (c *MCConn) Open(addr, password string) error {
-	log.Println("Dial " + addr)
 	conn, err := net.DialTimeout("tcp", addr, 10*time.Second)
 	if err != nil {
 		return err
